@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-02-26T21:31:00-07:00",
+  "lastUpdated": "2026-02-26T21:44:00-07:00",
   "summary": {
-    "total": 70,
-    "done": 54,
-    "todo": 12,
+    "total": 71,
+    "done": 56,
+    "todo": 11,
     "blocked": 3,
     "inProgress": 1
   },
@@ -90,11 +90,12 @@
     },
     {
       "name": "GitHub Sync",
-      "status": "inProgress",
+      "status": "done",
       "tasks": [
         {"name": "gh authenticated as sentientsprite", "status": "done"},
-        {"name": "Create nemo-workspace repo", "status": "inProgress"},
-        {"name": "Push workspace files", "status": "todo"}
+        {"name": "Created separate nemo-workspace repo", "status": "done"},
+        {"name": "Workspace files pushed", "status": "done"},
+        {"name": "Recovered lost files from session transcripts", "status": "done"}
       ]
     },
     {
