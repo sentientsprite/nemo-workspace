@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-02-26T21:50:00-07:00",
+  "lastUpdated": "2026-02-26T22:00:00-07:00",
   "summary": {
     "total": 97,
-    "done": 66,
+    "done": 70,
     "todo": 21,
     "blocked": 5,
-    "inProgress": 5
+    "inProgress": 1
   },
   "projects": [
     {
@@ -88,20 +88,21 @@
     },
     {
       "name": "Spryte Engine Fork",
-      "status": "inProgress",
+      "status": "todo",
       "tasks": [
         {"name": "Rsync ~488MB to ~/spryte-engine/", "status": "done"},
         {"name": "Git initialized", "status": "done"},
         {"name": "Architecture docs written", "status": "done"},
         {"name": "Codebase fully mapped", "status": "done"},
         {"name": "Design pi-agent-core replacement", "status": "done"},
-        {"name": "Create spryte-agent-core package", "status": "todo"},
-        {"name": "Implement Agent class", "status": "todo"},
-        {"name": "Create spryte-ai package", "status": "todo"},
-        {"name": "Implement Anthropic provider", "status": "todo"},
-        {"name": "Implement OpenAI provider", "status": "todo"},
-        {"name": "Integrate and test", "status": "todo"}
-      ]
+        {"name": "Create spryte-agent-core package", "status": "todo", "note": "DEFERRED"},
+        {"name": "Implement Agent class", "status": "todo", "note": "DEFERRED"},
+        {"name": "Create spryte-ai package", "status": "todo", "note": "DEFERRED"},
+        {"name": "Implement Anthropic provider", "status": "todo", "note": "DEFERRED"},
+        {"name": "Implement OpenAI provider", "status": "todo", "note": "DEFERRED"},
+        {"name": "Integrate and test", "status": "todo", "note": "DEFERRED"}
+      ],
+      "note": "Phase 1 complete. Implementation deferred — plan at references/spryte-core-replacement-plan.md"
     },
     {
       "name": "VS Code + Google Colab GPU",
@@ -138,14 +139,14 @@
     },
     {
       "name": "Community & Research",
-      "status": "inProgress",
+      "status": "done",
       "tasks": [
         {"name": "Join Sentient Labs Discord", "status": "done", "note": "Found: discord.gg/sentient"},
         {"name": "Follow github.com/tmgthb/Autonom daily", "status": "done", "note": "5 key papers identified"},
         {"name": "Explore Moltverr agent marketplace", "status": "done", "note": "Skip — 0 jobs, 0 agents"},
         {"name": "Check Crabwalk agent monitoring", "status": "done", "note": "Installed & running on :3000"}
       ],
-      "note": "URLs #1, #14, #37, #31 — All tasks complete"
+      "note": "URLs #1, #14, #37, #31 — Complete"
     },
     {
       "name": "Community & Platforms",
