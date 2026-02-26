@@ -1,0 +1,122 @@
+{
+  "lastUpdated": "2026-02-26T21:31:00-07:00",
+  "summary": {
+    "total": 70,
+    "done": 54,
+    "todo": 12,
+    "blocked": 3,
+    "inProgress": 1
+  },
+  "projects": [
+    {
+      "name": "Core Setup",
+      "status": "done",
+      "tasks": [
+        {"name": "Identity (IDENTITY.md, USER.md)", "status": "done"},
+        {"name": "Discord connection", "status": "done"},
+        {"name": "Gateway as LaunchAgent", "status": "done"},
+        {"name": "Exec access enabled", "status": "done"},
+        {"name": "Web dashboard", "status": "done"}
+      ]
+    },
+    {
+      "name": "Security Hardening",
+      "status": "done",
+      "tasks": [
+        {"name": "Gateway loopback bind", "status": "done"},
+        {"name": "Dashboard localhost only", "status": "done"},
+        {"name": "Discord DM allowlist", "status": "done"},
+        {"name": ".gitignore secrets", "status": "done"},
+        {"name": "Prompt injection defenses", "status": "done"},
+        {"name": "Daily security audit cron", "status": "done"},
+        {"name": "Docker sandbox", "status": "done"},
+        {"name": "Tailscale installed", "status": "done"}
+      ]
+    },
+    {
+      "name": "X/Twitter Integration",
+      "status": "blocked",
+      "tasks": [
+        {"name": "Browser login", "status": "done"},
+        {"name": "API auth verified", "status": "done"},
+        {"name": "API posting", "status": "blocked", "note": "402 Payment Required"},
+        {"name": "Content strategy drafted", "status": "done"},
+        {"name": "Password change", "status": "todo"}
+      ]
+    },
+    {
+      "name": "Token Efficiency",
+      "status": "done",
+      "tasks": [
+        {"name": "LM Studio running", "status": "done"},
+        {"name": "Nomic Embed for memory", "status": "done"},
+        {"name": "Kimi K2.5 configured", "status": "done"},
+        {"name": "Sub-agent routing working", "status": "done"},
+        {"name": "TOKEN-EFFICIENCY.md", "status": "done"}
+      ]
+    },
+    {
+      "name": "URL Queue Processing",
+      "status": "done",
+      "tasks": [
+        {"name": "41/41 URLs processed", "status": "done"},
+        {"name": "Results documented", "status": "done"},
+        {"name": "4 new projects created from findings", "status": "done"}
+      ]
+    },
+    {
+      "name": "Spryte Engine Fork",
+      "status": "inProgress",
+      "tasks": [
+        {"name": "Rsync ~488MB to ~/spryte-engine/", "status": "done"},
+        {"name": "Git initialized", "status": "done"},
+        {"name": "Architecture docs written", "status": "done"},
+        {"name": "Codebase fully mapped", "status": "done"},
+        {"name": "Replace pi-agent-core (307 lines)", "status": "todo"},
+        {"name": "Replace pi-ai (LLM abstraction)", "status": "todo"}
+      ]
+    },
+    {
+      "name": "Skills & Intelligence",
+      "status": "done",
+      "tasks": [
+        {"name": "find-skills installed", "status": "done"},
+        {"name": "agent-browser installed", "status": "done"},
+        {"name": "reflection skill written", "status": "done"},
+        {"name": "systematic-debugging skill written", "status": "done"},
+        {"name": "Boris Cherny tips implemented", "status": "done"},
+        {"name": "AGENTS.md enhanced", "status": "done"}
+      ]
+    },
+    {
+      "name": "GitHub Sync",
+      "status": "inProgress",
+      "tasks": [
+        {"name": "gh authenticated as sentientsprite", "status": "done"},
+        {"name": "Create nemo-workspace repo", "status": "inProgress"},
+        {"name": "Push workspace files", "status": "todo"}
+      ]
+    },
+    {
+      "name": "Community & Platforms",
+      "status": "blocked",
+      "tasks": [
+        {"name": "Moltbook registered", "status": "done"},
+        {"name": "Moltbook claim", "status": "blocked", "note": "X OAuth broken"},
+        {"name": "Join Sentient Discord", "status": "todo"},
+        {"name": "Explore Moltverr", "status": "todo"},
+        {"name": "Explore Crabwalk", "status": "todo"}
+      ]
+    },
+    {
+      "name": "Future: Multi-Agent Architecture",
+      "status": "todo",
+      "tasks": [
+        {"name": "Study Mission Control 10-agent pattern", "status": "todo"},
+        {"name": "Evaluate MS Agent Lightning", "status": "todo"},
+        {"name": "Design sub-agent team", "status": "todo"},
+        {"name": "VS Code + Google Colab GPU", "status": "todo"}
+      ]
+    }
+  ]
+}
