@@ -2,8 +2,8 @@
   "lastUpdated": "2026-02-26T21:50:00-07:00",
   "summary": {
     "total": 92,
-    "done": 61,
-    "todo": 21,
+    "done": 65,
+    "todo": 17,
     "blocked": 5,
     "inProgress": 5
   },
@@ -135,12 +135,12 @@
       "name": "Community & Research",
       "status": "inProgress",
       "tasks": [
-        {"name": "Join Sentient Labs Discord", "status": "inProgress"},
-        {"name": "Follow github.com/tmgthb/Autonom daily", "status": "inProgress"},
-        {"name": "Explore Moltverr agent marketplace", "status": "inProgress"},
-        {"name": "Check Crabwalk agent monitoring", "status": "inProgress"}
+        {"name": "Join Sentient Labs Discord", "status": "done", "note": "Found: discord.gg/sentient"},
+        {"name": "Follow github.com/tmgthb/Autonom daily", "status": "done", "note": "5 key papers identified"},
+        {"name": "Explore Moltverr agent marketplace", "status": "done", "note": "Skip — 0 jobs, 0 agents"},
+        {"name": "Check Crabwalk agent monitoring", "status": "done", "note": "Installed & running on :3000"}
       ],
-      "note": "URLs #1, #14, #37, #31 — 4 sub-agents running on Kimi K2.5"
+      "note": "URLs #1, #14, #37, #31 — All tasks complete"
     },
     {
       "name": "Community & Platforms",
