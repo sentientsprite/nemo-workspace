@@ -3,8 +3,8 @@
   "summary": {
     "total": 92,
     "done": 61,
-    "todo": 26,
-    "blocked": 4,
+    "todo": 25,
+    "blocked": 5,
     "inProgress": 1
   },
   "projects": [
@@ -122,14 +122,14 @@
     },
     {
       "name": "Agent Body Framework",
-      "status": "todo",
+      "status": "blocked",
       "tasks": [
         {"name": "Implement Bones (codebase ingestion)", "status": "todo"},
         {"name": "Enhance Eyes (proactive triggers)", "status": "todo"},
         {"name": "Document DNA protocols", "status": "todo"},
         {"name": "Review @kloss_xyz full thread", "status": "todo"}
       ],
-      "note": "URL #5 — Brain/Muscles/Bones/DNA/Soul/Eyes/Heartbeat/Nerves"
+      "note": "URL #5 — ON HOLD: Pending conversation with King"
     },
     {
       "name": "Community & Research",
