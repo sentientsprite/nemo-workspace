@@ -1,9 +1,9 @@
 {
   "lastUpdated": "2026-02-26T21:50:00-07:00",
   "summary": {
-    "total": 92,
-    "done": 65,
-    "todo": 17,
+    "total": 97,
+    "done": 66,
+    "todo": 21,
     "blocked": 5,
     "inProgress": 5
   },
@@ -94,8 +94,13 @@
         {"name": "Git initialized", "status": "done"},
         {"name": "Architecture docs written", "status": "done"},
         {"name": "Codebase fully mapped", "status": "done"},
-        {"name": "Replace pi-agent-core (307 lines)", "status": "todo"},
-        {"name": "Replace pi-ai (LLM abstraction)", "status": "todo"}
+        {"name": "Design pi-agent-core replacement", "status": "done"},
+        {"name": "Create spryte-agent-core package", "status": "todo"},
+        {"name": "Implement Agent class", "status": "todo"},
+        {"name": "Create spryte-ai package", "status": "todo"},
+        {"name": "Implement Anthropic provider", "status": "todo"},
+        {"name": "Implement OpenAI provider", "status": "todo"},
+        {"name": "Integrate and test", "status": "todo"}
       ]
     },
     {
