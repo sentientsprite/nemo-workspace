@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-02-26T21:44:00-07:00",
+  "lastUpdated": "2026-02-26T21:50:00-07:00",
   "summary": {
-    "total": 71,
-    "done": 56,
-    "todo": 11,
-    "blocked": 3,
+    "total": 92,
+    "done": 61,
+    "todo": 26,
+    "blocked": 4,
     "inProgress": 1
   },
   "projects": [
@@ -65,15 +65,13 @@
       ]
     },
     {
-      "name": "Spryte Engine Fork",
-      "status": "inProgress",
+      "name": "GitHub Sync",
+      "status": "done",
       "tasks": [
-        {"name": "Rsync ~488MB to ~/spryte-engine/", "status": "done"},
-        {"name": "Git initialized", "status": "done"},
-        {"name": "Architecture docs written", "status": "done"},
-        {"name": "Codebase fully mapped", "status": "done"},
-        {"name": "Replace pi-agent-core (307 lines)", "status": "todo"},
-        {"name": "Replace pi-ai (LLM abstraction)", "status": "todo"}
+        {"name": "gh authenticated as sentientsprite", "status": "done"},
+        {"name": "Created separate nemo-workspace repo", "status": "done"},
+        {"name": "Workspace files pushed", "status": "done"},
+        {"name": "Recovered lost files from session transcripts", "status": "done"}
       ]
     },
     {
@@ -89,14 +87,60 @@
       ]
     },
     {
-      "name": "GitHub Sync",
-      "status": "done",
+      "name": "Spryte Engine Fork",
+      "status": "inProgress",
       "tasks": [
-        {"name": "gh authenticated as sentientsprite", "status": "done"},
-        {"name": "Created separate nemo-workspace repo", "status": "done"},
-        {"name": "Workspace files pushed", "status": "done"},
-        {"name": "Recovered lost files from session transcripts", "status": "done"}
+        {"name": "Rsync ~488MB to ~/spryte-engine/", "status": "done"},
+        {"name": "Git initialized", "status": "done"},
+        {"name": "Architecture docs written", "status": "done"},
+        {"name": "Codebase fully mapped", "status": "done"},
+        {"name": "Replace pi-agent-core (307 lines)", "status": "todo"},
+        {"name": "Replace pi-ai (LLM abstraction)", "status": "todo"}
       ]
+    },
+    {
+      "name": "VS Code + Google Colab GPU",
+      "status": "todo",
+      "tasks": [
+        {"name": "Set up VS Code Colab extension", "status": "todo"},
+        {"name": "Configure free T4 GPU access", "status": "todo"},
+        {"name": "Test larger model inference", "status": "todo"},
+        {"name": "Document workflow", "status": "todo"}
+      ],
+      "note": "URL #29 — 621K views, free GPU for training/inference"
+    },
+    {
+      "name": "Multi-Agent Mission Control",
+      "status": "todo",
+      "tasks": [
+        {"name": "Study 10-agent pattern guide (3.8M views)", "status": "todo"},
+        {"name": "Design sub-agent team structure", "status": "todo"},
+        {"name": "Create specialized agents (coding, research, security)", "status": "todo"},
+        {"name": "Implement agent delegation protocol", "status": "todo"}
+      ],
+      "note": "URL #35 — coordinated agent team for SiteGPT support"
+    },
+    {
+      "name": "Agent Body Framework",
+      "status": "todo",
+      "tasks": [
+        {"name": "Implement Bones (codebase ingestion)", "status": "todo"},
+        {"name": "Enhance Eyes (proactive triggers)", "status": "todo"},
+        {"name": "Document DNA protocols", "status": "todo"},
+        {"name": "Review @kloss_xyz full thread", "status": "todo"}
+      ],
+      "note": "URL #5 — Brain/Muscles/Bones/DNA/Soul/Eyes/Heartbeat/Nerves"
+    },
+    {
+      "name": "Community & Research",
+      "status": "todo",
+      "tasks": [
+        {"name": "Join Sentient Labs Discord", "status": "todo"},
+        {"name": "Follow github.com/tmgthb/Autonom daily", "status": "todo"},
+        {"name": "Explore Moltverr agent marketplace", "status": "todo"},
+        {"name": "Check Crabwalk agent monitoring", "status": "todo"}
+      ],
+      "note": "URLs #1, #14, #37, #31 — ecosystem integration"
     },
     {
       "name": "Community & Platforms",
@@ -110,7 +154,7 @@
       ]
     },
     {
-      "name": "Future: Multi-Agent Architecture",
+      "name": "Legacy: Multi-Agent Architecture",
       "status": "todo",
       "tasks": [
         {"name": "Study Mission Control 10-agent pattern", "status": "todo"},
