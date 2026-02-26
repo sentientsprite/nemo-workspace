@@ -112,5 +112,14 @@ interface Provider {
 - [ ] Remove pi-* dependencies
 
 ## Status
-**Current**: Design phase
-**Next**: Create package structure and Agent class
+**Current**: Planning complete — DEFERRED
+**Phase 1 Done**: Architecture analysis, scoping, design document
+**Phase 2 Deferred**: Implementation (spryte-agent-core, spryte-ai packages)
+**Rationale**: ~13K lines to replace (pi-agent-core + pi-ai). Focus on using NEMO/OpenClaw effectively before building custom engine.
+
+**When to Resume**:
+- After mastering multi-agent patterns
+- When specific limitations in pi-* packages block progress
+- As a longer-term independence goal
+
+**Reference**: Plan preserved for future implementation.
