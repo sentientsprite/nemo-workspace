@@ -33,6 +33,9 @@
 - [ ] **Exchange failure fallback** — If Coinbase API dies, switch to backup data source instantly
 - [ ] **Tax optimization** — Track holding periods for favorable tax treatment
 
+### Product/Business Dreams
+- [ ] **Conspiracy Theory Prediction Markets** — Platform for betting on governments admitting to "conspiracy theories" and unlikely events. Resolution via official statements. High engagement, regulatory challenges. Needs legal review and softer branding ("alternative history predictions"?). Captain's idea — workshop later.
+
 ---
 
 ## ✅ Dreams Realized
