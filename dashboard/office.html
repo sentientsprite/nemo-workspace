@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEMO Office | Live Agent Workspace</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    --bg: #0d1117;
+    --bg-secondary: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-muted: #8b949e;
+    --accent: #58a6ff;
+    --success: #3fb950;
+    --warning: #d29922;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+  
+  .header {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.2em;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text);
+  }
+  
+  .nav-tabs {
+    display: flex;
+    gap: 4px;
+  }
+  
+  .nav-tab {
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  
+  .nav-tab:hover, .nav-tab.active {
+    color: var(--text);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+  }
+  
+  .container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 24px;
+  }
+  
+  @media (max-width: 1100px) {
+    .container { grid-template-columns: 1fr; }
+  }
+  
+  .office-panel {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .panel-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .panel-title {
+    font-size: 1em;
+    font-weight: 600;
+  }
+  
+  .zoom-controls {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .zoom-btn {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+  }
+  
+  .zoom-btn:hover {
+    background: var(--border);
+  }
+  
+  #canvas-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background: #1a1f2e;
+    overflow: hidden;
+    cursor: grab;
+  }
+  
+  #canvas-container:active {
+    cursor: grabbing;
+  }
+  
+  canvas {
+    display: block;
+  }
+  
+  .side-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .info-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  
+  .info-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .info-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 3px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8em;
+  }
+  
+  .info-title h2 {
+    font-size: 1.2em;
+    margin-bottom: 4px;
+  }
+  
+  .info-title p {
+    color: var(--text-muted);
+    font-size: 0.9em;
+  }
+  
+  .info-section {
+    margin-bottom: 16px;
+  }
+  
+  .info-section h3 {
+    font-size: 0.8em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+  }
+  
+  .task-box {
+    background: var(--bg);
+    border-left: 3px solid var(--accent);
+    padding: 12px;
+    border-radius: 0 8px 8px 0;
+  }
+  
+  .task-project {
+    font-size: 0.8em;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  
+  .task-desc {
+    font-size: 0.95em;
+  }
+  
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .stat-item {
+    background: var(--bg);
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .stat-num {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  
+  .stat-label {
+    font-size: 0.75em;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  
+  .project-link {
+    display: block;
+    padding: 10px;
+    background: var(--bg);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9em;
+    transition: all 0.2s;
+  }
+  
+  .project-link:hover {
+    background: var(--border);
+  }
+  
+  .project-link strong {
+    color: var(--accent);
+  }
+  
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8em;
+    color: var(--text-muted);
+  }
+  
+  .legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="brand">
+      <span>🐟</span>
+      <span>NEMO Orchestrator</span>
+    </a>
+    <nav class="nav-tabs">
+      <a href="index.html" class="nav-tab">📊 Sessions</a>
+      <a href="office.html" class="nav-tab active">🏢 Office</a>
+      <a href="trading.html" class="nav-tab">📈 Trading</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="office-panel">
+      <div class="panel-header">
+        <span class="panel-title">🏢 Live Agent Workspace</span>
+        <div class="zoom-controls">
+          <button class="zoom-btn" onclick="zoomOut()">−</button>
+          <button class="zoom-btn" onclick="zoomIn()">+</button>
+        </div>
+      </div>
+      <div id="canvas-container">
+        <canvas id="officeCanvas"></canvas>
+      </div>
+      <div class="legend">
+        <div class="legend-item"><div class="legend-color" style="background: #58a6ff;"></div>Kalshi API</div>
+        <div class="legend-item"><div class="legend-color" style="background: #d29922;"></div>Trading Bot</div>
+        <div class="legend-item"><div class="legend-color" style="background: #3fb950;"></div>Documentation</div>
+        <div class="legend-item"><div class="legend-color" style="background: #8b949e;"></div>Operations</div>
+        <div class="legend-item"><div class="legend-color" style="background: #a371f7;"></div>Spryte Engine</div>
+      </div>
+    </div>
+
+    <div class="side-panel">
+      <div class="info-card">
+        <div class="info-header">
+          <div class="info-avatar" id="selectedAvatar">🐟</div>
+          <div class="info-title">
+            <h2 id="selectedName">Select Agent</h2>
+            <p id="selectedRole">Click an agent in the workspace</p>
+          </div>
+        </div>
+        
+        <div class="info-section">
+          <h3>Current Assignment</h3>
+          <div class="task-box">
+            <div class="task-project" id="selectedProject">-</div>
+            <div class="task-desc" id="selectedTask">-</div>
+          </div>
+        </div>
+        
+        <div class="info-section">
+          <h3>Stats</h3>
+          <div class="stats-row">
+            <div class="stat-item">
+              <div class="stat-num" id="statTasks">-</div>
+              <div class="stat-label">Tasks Done</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num" id="statQueue">-</div>
+              <div class="stat-label">In Queue</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-section">
+          <h3>Quick Links</h3>
+          <a href="index.html#project-kalshi-api-skill" class="project-link">
+            <strong>Kalshi API Skill</strong><br>
+            <small>Coder assigned • Needs credentials</small>
+          </a>
+          <a href="index.html#project-trading-bot-development" class="project-link">
+            <strong>Trading Bot</strong><br>
+            <small>Trader/Analyst • Bug fix pending</small>
+          </a>
+          <a href="index.html#project-spryte-engine-fork" class="project-link">
+            <strong>Spryte Engine</strong><br>
+            <small>Coder • 70% complete</small>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Canvas setup
+    const canvas = document.getElementById('officeCanvas');
+    const ctx = canvas.getContext('2d');
+    const container = document.getElementById('canvas-container');
+    
+    // Office state
+    let agents = {};
+    let selectedAgentId = null;
+    let zoom = 1;
+    let panX = 0, panY = 0;
+    let isDragging = false;
+    let dragStartX, dragStartY;
+    
+    // Tile size
+    const TILE_SIZE = 32;
+    
+    // Project zones (x, y, w, h, color, name)
+    const zones = [
+      { x: 2, y: 2, w: 8, h: 6, color: '#58a6ff', name: 'Kalshi API', project: 'Kalshi API Skill' },
+      { x: 12, y: 2, w: 8, h: 6, color: '#d29922', name: 'Trading', project: 'Trading Bot Development' },
+      { x: 22, y: 2, w: 6, h: 6, color: '#3fb950', name: 'Docs', project: 'Documentation & Tracking' },
+      { x: 2, y: 10, w: 10, h: 5, color: '#8b949e', name: 'Ops', project: '24/7 Operations' },
+      { x: 14, y: 10, w: 8, h: 5, color: '#a371f7', name: 'Spryte', project: 'Spryte Engine Fork' },
+      { x: 2, y: 17, w: 26, h: 5, color: '#30363d', name: 'General', project: 'General' }
+    ];
+    
+    // Agent positions by project
+    const projectPositions = {
+      'Kalshi API Skill': { x: 6, y: 5 },
+      'Trading Bot Development': { x: 16, y: 5 },
+      'Documentation & Tracking': { x: 25, y: 5 },
+      '24/7 Operations': { x: 7, y: 12 },
+      'Security Hardening': { x: 7, y: 12 },
+      'Spryte Engine Fork': { x: 18, y: 12 },
+      'General': { x: 15, y: 19 }
+    };
+    
+    function resizeCanvas() {
+      const rect = container.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+    }
+    
+    function getAgentProject(agent) {
+      const task = agent.currentTask?.toLowerCase() || '';
+      if (task.includes('kalshi')) return 'Kalshi API Skill';
+      if (task.includes('snipe') || task.includes('trading') || task.includes('test')) return 'Trading Bot Development';
+      if (task.includes('documentation') || task.includes('file audit')) return 'Documentation & Tracking';
+      if (task.includes('security')) return 'Security Hardening';
+      if (task.includes('health check') || task.includes('hourly')) return '24/7 Operations';
+      if (task.includes('spryte') || task.includes('integration')) return 'Spryte Engine Fork';
+      return 'General';
+    }
+    
+    // Load agent data
+    async function loadAgents() {
+      try {
+        const res = await fetch('data.json?' + Date.now());
+        const data = await res.json();
+        
+        if (data.office?.agents) {
+          data.office.agents.forEach(agent => {
+            const project = getAgentProject(agent);
+            const basePos = projectPositions[project] || { x: 15, y: 19 };
+            
+            agents[agent.id] = {
+              ...agent,
+              project: project,
+              x: basePos.x * TILE_SIZE + (Math.random() * 40 - 20),
+              y: basePos.y * TILE_SIZE + (Math.random() * 40 - 20),
+              targetX: null,
+              targetY: null,
+              walkProgress: 0,
+              animFrame: 0
+            };
+          });
+        }
+        
+        render();
+      } catch (err) {
+        console.error('Failed to load agents:', err);
+      }
+    }
+    
+    // Draw functions
+    function drawGrid() {
+      ctx.strokeStyle = '#21262d';
+      ctx.lineWidth = 1;
+      
+      const offsetX = panX % (TILE_SIZE * zoom);
+      const offsetY = panY % (TILE_SIZE * zoom);
+      
+      for (let x = offsetX; x < canvas.width; x += TILE_SIZE * zoom) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+      
+      for (let y = offsetY; y < canvas.height; y += TILE_SIZE * zoom) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+    }
+    
+    function drawZones() {
+      zones.forEach(zone => {
+        const x = zone.x * TILE_SIZE * zoom + panX;
+        const y = zone.y * TILE_SIZE * zoom + panY;
+        const w = zone.w * TILE_SIZE * zoom;
+        const h = zone.h * TILE_SIZE * zoom;
+        
+        // Zone background
+        ctx.fillStyle = zone.color + '20';
+        ctx.fillRect(x, y, w, h);
+        
+        // Zone border
+        ctx.strokeStyle = zone.color;
+        ctx.lineWidth = 2;
+        ctx.setLineDash([5, 5]);
+        ctx.strokeRect(x, y, w, h);
+        ctx.setLineDash([]);
+        
+        // Zone label
+        ctx.fillStyle = zone.color;
+        ctx.font = `bold ${12 * zoom}px sans-serif`;
+        ctx.textAlign = 'center';
+        ctx.fillText(zone.name, x + w / 2, y + 20 * zoom);
+      });
+    }
+    
+    function drawAgent(agent) {
+      const x = agent.x * zoom + panX;
+      const y = agent.y * zoom + panY;
+      const size = 28 * zoom;
+      
+      // Shadow
+      ctx.fillStyle = 'rgba(0,0,0,0.3)';
+      ctx.beginPath();
+      ctx.ellipse(x + size/2, y + size - 2, size/3, size/6, 0, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // Body (circle)
+      ctx.fillStyle = agent.status === 'active' ? '#21262d' : '#161b22';
+      ctx.beginPath();
+      ctx.arc(x + size/2, y + size/2, size/2 - 2, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // Border
+      ctx.strokeStyle = agent.status === 'active' ? '#3fb950' : '#d29922';
+      ctx.lineWidth = agent.id === selectedAgentId ? 4 : 2;
+      ctx.stroke();
+      
+      // Emoji
+      ctx.font = `${size * 0.6}px sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(agent.emoji, x + size/2, y + size/2);
+      
+      // Selection ring
+      if (agent.id === selectedAgentId) {
+        ctx.strokeStyle = '#58a6ff';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(x + size/2, y + size/2, size/2 + 4, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+    }
+    
+    function draw() {
+      // Clear
+      ctx.fillStyle = '#0d1117';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      drawGrid();
+      drawZones();
+      
+      // Draw agents
+      Object.values(agents).forEach(agent => drawAgent(agent));
+    }
+    
+    function render() {
+      draw();
+      requestAnimationFrame(render);
+    }
+    
+    // Mouse interactions
+    canvas.addEventListener('mousedown', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      // Check if clicked on agent
+      let clickedAgent = null;
+      Object.values(agents).forEach(agent => {
+        const ax = agent.x * zoom + panX;
+        const ay = agent.y * zoom + panY;
+        const size = 28 * zoom;
+        
+        if (x >= ax && x <= ax + size && y >= ay && y <= ay + size) {
+          clickedAgent = agent;
+        }
+      });
+      
+      if (clickedAgent) {
+        selectAgent(clickedAgent.id);
+      } else {
+        isDragging = true;
+        dragStartX = x - panX;
+        dragStartY = y - panY;
+        container.style.cursor = 'grabbing';
+      }
+    });
+    
+    canvas.addEventListener('mousemove', (e) => {
+      if (isDragging) {
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        panX = x - dragStartX;
+        panY = y - dragStartY;
+      }
+    });
+    
+    canvas.addEventListener('mouseup', () => {
+      isDragging = false;
+      container.style.cursor = 'grab';
+    });
+    
+    canvas.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const delta = e.deltaY > 0 ? -0.1 : 0.1;
+      zoom = Math.max(0.5, Math.min(2, zoom + delta));
+    });
+    
+    function selectAgent(id) {
+      selectedAgentId = id;
+      const agent = agents[id];
+      if (!agent) return;
+      
+      document.getElementById('selectedAvatar').textContent = agent.emoji;
+      document.getElementById('selectedName').textContent = agent.name;
+      document.getElementById('selectedRole').textContent = agent.role;
+      document.getElementById('selectedProject').textContent = agent.project;
+      document.getElementById('selectedTask').textContent = agent.currentTask;
+      document.getElementById('statTasks').textContent = agent.tasksCompleted || 0;
+      document.getElementById('statQueue').textContent = agent.queue || 0;
+    }
+    
+    function zoomIn() {
+      zoom = Math.min(2, zoom + 0.2);
+    }
+    
+    function zoomOut() {
+      zoom = Math.max(0.5, zoom - 0.2);
+    }
+    
+    // Init
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    loadAgents();
+    render();
+  </script>
+</body>
+</html>

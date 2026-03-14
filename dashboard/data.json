@@ -1,0 +1,193 @@
+{
+  "lastUpdated": "2026-03-02T18:15:00-07:00",
+  "jobs": [
+    {"name": "Hourly Pulse Check", "status": "running", "schedule": "Every hour", "lastRun": "2026-03-02T18:00:00Z", "model": "Mistral 7B (Local)", "cost": "$0.00"},
+    {"name": "Daily Security Audit", "status": "running", "schedule": "09:00 MST", "lastRun": "2026-03-02T09:00:00Z", "model": "Mistral 7B (Local)", "cost": "$0.00"},
+    {"name": "Daily Research Summary", "status": "running", "schedule": "20:00 MST", "lastRun": "Pending", "model": "Mistral 7B (Local)", "cost": "$0.00"},
+    {"name": "Market Intelligence Scan", "status": "running", "schedule": "Every 4 hours", "lastRun": "2026-03-02T16:00:00Z", "model": "Mistral 7B (Local)", "cost": "$0.00"},
+    {"name": "API Credit Check", "status": "pending", "schedule": "Sunday 00:00 MST", "lastRun": "Pending setup", "model": "Mistral 7B (Local)", "cost": "$0.00"},
+    {"name": "GitHub Sync", "status": "running", "schedule": "Manual", "lastRun": "2026-03-02T17:56:00Z", "note": "6 commits pushed today"}
+  ],
+  "summary": {
+    "total": 125,
+    "done": 95,
+    "todo": 10,
+    "blocked": 4,
+    "inProgress": 16
+  },
+  "projects": [
+    {
+      "name": "Core Setup",
+      "status": "done",
+      "tasks": [
+        {"name": "Identity (IDENTITY.md, USER.md)", "status": "done"},
+        {"name": "Discord connection", "status": "done"},
+        {"name": "Gateway as LaunchAgent", "status": "done"},
+        {"name": "Exec access enabled", "status": "done"},
+        {"name": "Web dashboard", "status": "done"}
+      ]
+    },
+    {
+      "name": "Security Hardening",
+      "status": "done",
+      "tasks": [
+        {"name": "Gateway loopback bind", "status": "done"},
+        {"name": "Dashboard localhost only", "status": "done"},
+        {"name": "Discord DM allowlist", "status": "done"},
+        {"name": ".gitignore secrets", "status": "done"},
+        {"name": "Prompt injection defenses", "status": "done"},
+        {"name": "Daily security audit cron", "status": "done"},
+        {"name": "Docker sandbox", "status": "done"},
+        {"name": "Tailscale installed", "status": "done"}
+      ]
+    },
+    {
+      "name": "X/Twitter Integration",
+      "status": "blocked",
+      "tasks": [
+        {"name": "Browser login", "status": "done"},
+        {"name": "API auth verified", "status": "done"},
+        {"name": "API posting", "status": "blocked", "note": "402 Payment Required"},
+        {"name": "Content strategy drafted", "status": "done"},
+        {"name": "Password change", "status": "todo"}
+      ]
+    },
+    {
+      "name": "Token Efficiency System",
+      "status": "done",
+      "tasks": [
+        {"name": "LM Studio running (Mistral 7B)", "status": "done"},
+        {"name": "4-tier model routing", "status": "done"},
+        {"name": "Bootstrap compression (80%)", "status": "done"},
+        {"name": "Local-first gateway config", "status": "done"},
+        {"name": "TOKEN-EFFICIENCY.md", "status": "done"},
+        {"name": "MODEL-ROUTING.md", "status": "done"},
+        {"name": "All cron jobs on local model", "status": "done"}
+      ],
+      "note": "95% cost reduction achieved: $200 → $5-10/month"
+    },
+    {
+      "name": "24/7 Operations",
+      "status": "done",
+      "tasks": [
+        {"name": "4 cron jobs deployed", "status": "done"},
+        {"name": "Hourly pulse check", "status": "done"},
+        {"name": "Daily research summary", "status": "done"},
+        {"name": "Market intelligence scan", "status": "done"},
+        {"name": "Daily security audit", "status": "done"},
+        {"name": "24-7-OPERATIONS.md", "status": "done"}
+      ],
+      "note": "Continuous automation active"
+    },
+    {
+      "name": "Documentation & Tracking",
+      "status": "done",
+      "tasks": [
+        {"name": "COST-TRACKING.md", "status": "done"},
+        {"name": "SKILL-STATUS.md", "status": "done"},
+        {"name": "DREAM_LOG.md updated", "status": "done"},
+        {"name": "MEMORY.md updated", "status": "done"},
+        {"name": "AGENTS.md updated", "status": "done"}
+      ]
+    },
+    {
+      "name": "Kalshi API Skill",
+      "status": "inProgress",
+      "tasks": [
+        {"name": "SKILL.md documentation", "status": "done"},
+        {"name": "Python API client", "status": "done"},
+        {"name": "CLI wrapper script", "status": "done"},
+        {"name": "Demo mode default", "status": "done"},
+        {"name": "Trade logging", "status": "done"},
+        {"name": "Live mode protection", "status": "done"},
+        {"name": "API credentials setup", "status": "todo"},
+        {"name": "Paper trading tests", "status": "todo"}
+      ],
+      "note": "Framework complete. Needs Kalshi API credentials."
+    },
+    {
+      "name": "Trading Bot Development",
+      "status": "inProgress",
+      "tasks": [
+        {"name": "Unified NEMO Trading plugin", "status": "done"},
+        {"name": "Polymarket integration", "status": "done"},
+        {"name": "Coinbase integration", "status": "done"},
+        {"name": "Momentum strategy", "status": "done"},
+        {"name": "Mean Reversion strategy", "status": "done"},
+        {"name": "Snipe + Maker strategy", "status": "testing"},
+        {"name": "Crowd Fade strategy", "status": "done"},
+        {"name": "Copy Trading strategy", "status": "done"},
+        {"name": "Risk management", "status": "done"},
+        {"name": "Paper trading tests", "status": "inProgress", "note": "24hr test completed (partial)"},
+        {"name": "Kelly + VPIN + Chainlink integration", "status": "done", "note": "All modules wired into main.py"}
+      ]
+    },
+    {
+      "name": "Spryte Engine Fork",
+      "status": "inProgress",
+      "tasks": [
+        {"name": "Rsync ~488MB to ~/spryte-engine/", "status": "done"},
+        {"name": "Git initialized", "status": "done"},
+        {"name": "Architecture docs written", "status": "done"},
+        {"name": "Codebase fully mapped", "status": "done"},
+        {"name": "Design pi-agent-core replacement", "status": "done"},
+        {"name": "Create @spryte/agent-core package", "status": "done", "note": "Agent, Loop, State, Types"},
+        {"name": "Create @spryte/ai package", "status": "done", "note": "Anthropic + OpenAI providers"},
+        {"name": "Integrate and test", "status": "todo", "note": "~70% complete"}
+      ],
+      "note": "Core packages built. Integration testing remaining."
+    }
+  ],
+  "trading": {
+    "status": "development",
+    "activeTest": null,
+    "lastTest": {
+      "name": "Snipe + Maker 24hr",
+      "date": "2026-02-26 to 2026-02-27",
+      "duration": "4 hours (stopped)",
+      "result": "Division by zero error",
+      "note": "Needs bug fix before restart"
+    },
+    "previousTest": {
+      "name": "Coinbase Momentum 8hr",
+      "date": "2026-02-26",
+      "duration": "8 hours",
+      "result": "-6.31%",
+      "winRate": "33.7%",
+      "note": "Failed in chop, infrastructure sound"
+    },
+    "strategies": [
+      {"name": "Momentum", "status": "failed", "winRate": "33.7%", "pnl": "-6.31%", "note": "Failed in chop, needs ADX filter"},
+      {"name": "Mean Reversion", "status": "ready", "winRate": "TBD", "pnl": "TBD"},
+      {"name": "Snipe + Maker", "status": "bugfix", "winRate": "TBD", "pnl": "TBD", "note": "Division by zero error"},
+      {"name": "Crowd Fade", "status": "ready", "winRate": "65% expected", "pnl": "TBD"},
+      {"name": "Copy Trading", "status": "ready", "winRate": "TBD", "pnl": "TBD"}
+    ],
+    "riskLimits": {
+      "maxPosition": "$10 (live) / $50 (dry-run)",
+      "dailyLossLimit": "$50",
+      "maxDrawdown": "10%",
+      "consecutiveLossCooldown": "3 losses"
+    }
+  },
+  "office": {
+    "agents": [
+      { "id": "commander", "name": "Commander", "role": "Orchestrator", "emoji": "🎯", "status": "active", "currentTask": "File audit and improvements", "tasksCompleted": 52, "queue": 1 },
+      { "id": "researcher", "name": "Researcher", "role": "Intelligence Gatherer", "emoji": "🔬", "status": "active", "currentTask": "X/Twitter market intelligence", "tasksCompleted": 14, "queue": 2 },
+      { "id": "coder", "name": "Coder", "role": "Implementation Engineer", "emoji": "💻", "status": "active", "currentTask": "Kalshi API skill development", "tasksCompleted": 8, "queue": 2 },
+      { "id": "trader", "name": "Trader", "role": "Execution Agent", "emoji": "📈", "status": "idle", "currentTask": "Awaiting bug fix for Snipe strategy", "tasksCompleted": 23, "queue": 0 },
+      { "id": "analyst", "name": "Analyst", "role": "Data Scientist", "emoji": "📊", "status": "idle", "currentTask": "Awaiting test results", "tasksCompleted": 8, "queue": 1 },
+      { "id": "security", "name": "Security", "role": "Guardian", "emoji": "🛡️", "status": "active", "currentTask": "Daily security audit", "tasksCompleted": 2, "queue": 1 },
+      { "id": "writer", "name": "Writer", "role": "Communications", "emoji": "✍️", "status": "idle", "currentTask": "Documentation updates", "tasksCompleted": 5, "queue": 1 },
+      { "id": "monitor", "name": "Monitor", "role": "System Watcher", "emoji": "👁️", "status": "active", "currentTask": "Hourly health checks", "tasksCompleted": 22, "queue": 2 },
+      { "id": "planner", "name": "Planner", "role": "Strategist", "emoji": "🗺️", "status": "active", "currentTask": "Queueing next development phase", "tasksCompleted": 4, "queue": 2 },
+      { "id": "learner", "name": "Learner", "role": "Self-Improver", "emoji": "🧠", "status": "active", "currentTask": "Optimizing token efficiency", "tasksCompleted": 7, "queue": 2 }
+    ],
+    "stats": {
+      "active": 6,
+      "idle": 4,
+      "offline": 0,
+      "totalTasksCompleted": 145
+    }
+  }
+}
